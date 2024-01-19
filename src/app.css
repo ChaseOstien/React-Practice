@@ -1,0 +1,36 @@
+.container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.input {
+    padding: 3px;
+    margin-left: 5px;;
+}
+
+.label {
+    padding: 5px;
+}
+
+.listContainer {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
