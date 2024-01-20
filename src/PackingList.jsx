@@ -13,6 +13,7 @@ export default function PackingList() {
     });
 
     const [ newItem, setNewItem ] = useState('');
+    // const [ packed, setPacked ] = useState(false);
 
     useEffect(() => {
         localStorage.setItem('PACKINGLIST', JSON.stringify(packingList))
@@ -24,17 +25,6 @@ export default function PackingList() {
                 {id: crypto.randomUUID(), title, completed: false}
             ]
         });
-    }
-
-    function togglePackingList({id, completed}) {
-        setPackingList(currentPackingList => {
-            return currentPackingList.map(item => {
-              if (item.id === id) {
-                return {...item, completed}
-              }
-              return item;
-            });
-        })
     }
 
     function handleSubmit(e) {
@@ -56,14 +46,7 @@ export default function PackingList() {
                         <button type="submit">Submit</button>
                     </label>
                 </form>
-                <ul className="list">
-                    {packingList.length === 0 && 'No items to pack!'}
-                    {packingList.map(item => {
-                        return (
-                            <Item {...item} key={item.id} newItem={newItem} packingList={packingList} addItem={addItem} togglePackingList={togglePackingList}/>
-                        )
-                    })}
-                </ul>
+                <Item packingList={packingList} setPackingList={setPackingList}/>
             </div>
         </>
     )

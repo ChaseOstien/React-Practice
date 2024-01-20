@@ -51,20 +51,22 @@ export default function Form() {
     return (
         <>
         <div className="container">
+        <h1>ToDo List</h1>
       <form  className="form" onSubmit={handleSubmit}> 
         <label className="label">Todo:
           <input className="input"  type="text" value={newSubmission} onChange={e => setNewSubmission(e.target.value)} placeholder="Write a Todo"></input>
         </label>
         <button type="submit" className="button">Add to List!</button>
       </form>
-    </div>
+    
     <div className="submissions">
-    <ul>
+    <ul className="list">
         {formData.length === 0 && 'No Todos!'}
         {formData.map(data => {
             return <ListItem data={data} key={data.id} toggleTodo={toggleTodo} deleteTodo={deleteTodo} id={data.id}/>
         })}
     </ul>
+    </div>
     </div>
     <PackingList />
     </>
